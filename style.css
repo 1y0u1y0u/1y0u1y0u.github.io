@@ -1,9 +1,6 @@
 scoreboard{ margin-top:16px; text-align:left; display:inline-block; }
-.scoreboard h2{ margin-bottom:8px; font-size:18px; }
+.scoreboard h2{ margin-bottom:8px; font-size:24px; }
 .controls{ margin-top:12px; }
-button{ padding:8px 12px; border-radius:10px; border:0;
-background:#21264a; color:var(--text); cursor:pointer; }
-button:disabled{ opacity:.5; cursor:not-allowed; }
 
 :root{
     --bg: #0f1226;
@@ -15,14 +12,15 @@ button:disabled{ opacity:.5; cursor:not-allowed; }
     *{box-sizing:border-box}
     html,body{height:100%;}
     body{
-     margin:0; font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
-     background:var(--bg); color:var(--text); display:grid; place-items:center; padding:24px;
+        margin:0; font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+        background:var(--bg); color:var(--text); display:grid; place-items:center; padding:24px;
+        
 }
 
 /* 再設計main的部分與h1 */
-.container{ width: min(720px, 96%); text-align:center; }
+.container{ width: min(720px, 96%); text-align:center; margin:0 auto}
 
-h1{ margin:0 0 16px 0; font-size:24px; }
+h1{ margin:0 0 16px 0; font-size:40px; }
 
 .status{ margin-bottom:12px; }
  /* 設計棋盤<section id="board" class="board" aria-label="井字棋棋盤"> */
@@ -31,6 +29,7 @@ h1{ margin:0 0 16px 0; font-size:24px; }
 display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;
 background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
 padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
+margin: 0 auto;
 }
 
 .cell{
@@ -38,11 +37,13 @@ padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
     background:linear-gradient(180deg,#121430,#0e1030); 
     border:1px solid rgba(255,255,255,0.03);
     font-size:48px; 
-    font-weight:800display grid;
+    font-weight:800;
+    display: grid;
     place-items:center;
     cursor:pointer; 
     user-select:none; 
     -webkit-tap-highlight-color:transparent;
+    aspect-ratio: 1 / 1;
 }
 
 .cell.x{ color:var(--x); }
@@ -50,9 +51,33 @@ padding:12px; border-radius:14px; width:min(560px, 92%); aspect-ratio:1/1;
 .cell.win{ background:var(--win); color:#000; }
 
 .controls{ margin-top:12px; }
-button{ padding:8px 12px; border-radius:10px; border:0; background:#21264a; color:var(--text);
-cursor:pointer; }
+button{ 
+    padding: 14px 24px;   /* ⭐ 增加內距，按鈕整體變大 */
+    font-size: 18px;      /* ⭐ 放大字體 */
+    border-radius: 12px;  /* ⭐ 圓角更好看 */
+    border: 0;
+    background: #21264a;
+    color: var(--text);
+    cursor: pointer;}
 button:disabled{ opacity:.5; cursor:not-allowed; }
+
+/* 按下瞬間縮小一點 */
+.cell:active {
+    transform: scale(0.92);
+    transition: transform 0.05s ease;
+}
+
+/* 每次成功下棋後的彈跳效果 */
+.cell.played {
+    animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+    0%   { transform: scale(0.8); }
+    80%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
 
 
 
