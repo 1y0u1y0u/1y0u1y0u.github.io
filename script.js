@@ -32,6 +32,8 @@ function place(idx){
     const cell = cells[idx];
     cell.textContent = current;
     cell.classList.add(current.toLowerCase());
+    cell.classList.add("played");  // ⭐ 加入彈跳動畫
+
     const result = evaluate();
     if(result.finished){
         endGame(result);
@@ -55,6 +57,7 @@ function evaluate(){
     if(board.every(v=>v)) return { finished:true, winner:null };
     return { finished:false };
 }
+
 
 cells.forEach(cell=>{
  cell.addEventListener('click', ()=>{
