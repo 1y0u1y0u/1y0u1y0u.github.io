@@ -74,7 +74,22 @@ function findWinningMove(player){
 
 // 隨機選擇空格
 function getRandomMove() {
-    const empty = board.map((v, i) => v ? null : i).filter(v => v !== null);
+    if (board[4] === null) {
+        return 4;
+    }
+
+    // 2. 四角（0, 2, 6, 8）
+    const corners = [0, 2, 6, 8];
+    const availableCorners = corners.filter(i => board[i] === null);
+    if (availableCorners.length > 0) {
+        return availableCorners[Math.floor(Math.random() * availableCorners.length)];
+    }
+
+    // 3. 其他空格
+    const empty = board
+        .map((v, i) => v === null ? i : null)
+        .filter(v => v !== null);
+
     return empty[Math.floor(Math.random() * empty.length)];
 }
     
