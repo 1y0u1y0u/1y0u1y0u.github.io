@@ -1,42 +1,102 @@
+/* 整體背景與置中 */
 body {
-font-family: "Microsoft JhengHei", sans-serif;
-text-align: center;
-background-color: #f2f2f2;
+    font-family: "Microsoft JhengHei", sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #f2f2f2, #ffffff);
+    margin: 0;
+    padding: 30px 0;
 }
 
+/* 標題 */
 h1 {
-color: #333;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 2rem;
 }
 
+/* 狀態列 */
+#status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    background-color: #f9f9f9;
+    width: 260px;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* 棋盤 */
 .board {
-width: 300px;
-height: 300px;
-margin: 20px auto;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(3, 1fr);
-gap: 5px;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
+
+    background-color: #ddd;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
 }
 
+/* 每個格子 */
 .cell {
-background-color: white;
-border: 2px solid #888;
-font-size: 2em;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-transition: background-color 0.3s;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: 
+        background-color 0.25s,
+        transform 0.1s;
 }
 
+/* 滑過變亮 */
 .cell:hover {
-background-color: #e0e0e0;
+    background-color: #e8e8e8;
 }
 
+/* 點擊時縮小一點 */
+.cell:active {
+    transform: scale(0.95);
+}
+
+/* 按鈕區 */
 .controls {
-margin-top: 10px;
+    margin-top: 20px;
 }
 
+/* 重開按鈕 */
+button {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
 
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
 
+    transition: background-color 0.25s, transform 0.15s;
+}
 
+/* 按鈕 hover */
+button:hover {
+    background-color: #3578c8;
+}
+
+/* 按鈕點擊縮小 */
+button:active {
+    transform: scale(0.95);
+}
