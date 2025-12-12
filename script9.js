@@ -77,7 +77,6 @@ function getRandomMove() {
     if (board[4] === null) {
         return 4;
     }
-
     // 2. 四角（0, 2, 6, 8）
     const corners = [0, 2, 6, 8];
     const availableCorners = corners.filter(i => board[i] === null);
