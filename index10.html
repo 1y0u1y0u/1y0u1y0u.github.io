@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1132930-HW10</title>
+  <link rel="stylesheet" href="style10.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title">
+        <h1>Othello黑白棋</h1>
+        <p class="subtitle">黑棋先手（玩家），白棋後手（電腦）</p>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label class="switch">
+            <input id="vsComputer" type="checkbox" checked />
+            <span class="slider"></span>
+          </label>
+          <span>與電腦對戰</span>
+        </div>
+
+        <div class="control">
+          <label for="difficulty">電腦棋力</label>
+          <select id="difficulty">
+            <option value="basic" selected>基本（Greedy + 角落優先）</option>
+            <option value="advanced">進階（Minimax + Heuristic）</option>
+          </select>
+        </div>
+
+        <button id="btnRestart" class="btn">重新開始</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="board-wrap">
+        <div class="panel">
+          <div id="board" class="board" aria-label="othello-board"></div>
+        </div>
+
+        <div class="side">
+          <div class="card">
+            <div class="card-hd">狀態</div>
+            <div id="status" class="status">目前輪到：黑棋</div>
+          </div>
+
+          <div class="card">
+            <div class="card-hd">比分</div>
+            <div id="score" class="score">黑棋: 2　白棋: 2</div>
+          </div>
+
+          <div class="card">
+            <div class="card-hd">提示</div>
+            <ul class="tips">
+              <li>淡綠格：合法落子點；數字為可翻棋數。</li>
+              <li>翻棋會依序逐顆翻轉（含翻轉動畫）。</li>
+              <li>進階棋力會更重視角落、行動力與局勢評分。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="script10.js"></script>
+</body>
+</html>
