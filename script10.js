@@ -169,6 +169,11 @@
     /*if(!hasAnyValidMove(boardState, BLACK) && !hasAnyValidMove(boardState, WHITE)){
       endGame(black, white);
     }*/
+    boardEl.classList.remove("turn-black", "turn-white");
+    boardEl.classList.add(
+      currentPlayer === BLACK ? "turn-black" : "turn-white"
+    );
+    
   }
 
   function endGame(blackCount, whiteCount){

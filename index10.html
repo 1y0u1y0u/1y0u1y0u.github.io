@@ -15,24 +15,35 @@
       </div>
 
       <div class="controls">
-        <div class="control">
-          <label class="switch">
-            <input id="vsComputer" type="checkbox" checked />
-            <span class="slider"></span>
-          </label>
-          <span>與電腦對戰</span>
-        </div>
 
-        <div class="control">
-          <label for="difficulty">電腦棋力</label>
-          <select id="difficulty">
-            <option value="basic" selected>基本（Greedy + 角落優先）</option>
-            <option value="advanced">進階（Minimax + Heuristic）</option>
-          </select>
-        </div>
+  <!-- 對戰模式 -->
+  <div class="control-group">
+    <label class="group-title">對戰模式</label>
+    <div class="control">
+      <label class="switch">
+        <input id="vsComputer" type="checkbox" checked />
+        <span class="slider"></span>
+      </label>
+      <span>與電腦對戰</span>
+    </div>
+  </div>
 
-        <button id="btnRestart" class="btn">重新開始</button>
-      </div>
+  <!-- 電腦棋力 -->
+  <div class="control-group">
+    <label class="group-title">電腦棋力</label>
+    <select id="difficulty">
+      <option value="basic" selected>基本（Greedy + 角落優先）</option>
+      <option value="advanced">進階（Minimax + Heuristic）</option>
+    </select>
+  </div>
+
+  <!-- 重新開始（危險操作） -->
+  <div class="control-group danger">
+    <button id="btnRestart" class="btn">重新開始</button>
+  </div>
+
+</div>
+
     </header>
 
     <main class="main">
